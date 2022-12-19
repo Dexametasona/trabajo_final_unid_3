@@ -1,0 +1,76 @@
+<section class="container bg-secondary bg-opacity-50 rounded-3 m-auto my-3 p-5 w-50">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Configuracion</th>
+                <th>N</th>
+                <th>SKU</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each pedidos}}
+                <tr>
+                    <td><a href="/delete/{{_id}}" class="btn btn-danger"><span class="bi bi-trash"></span></a></td>
+                    <td>{{@index}}</td>
+                    <td>{{sku}}</td>
+                    <td>{{name}}</td>
+                    <td>{{price}}</td>
+                    <td>{{unid}}</td>
+                    <td class="total">{{total}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <form action="/pasarela/add" method="Post" class="w-50">
+        <div class="my-3">
+            <h2>Forma de envío</h2>
+            <label for="tienda">TIENDA</label>
+            <input type="radio" name="envio" value="0" id="tienda" class="form-check" onclick="comprar()" required>
+            <label for="domicilio">DOMICILIO</label>
+            <input type="radio" name="envio" value="1" id="domicilio" class="form-check" onclick="comprar()" required>
+        </div>
+        <div class="mb-3">
+            <h2>Forma de pago</h2>
+            <select name="tipo" id="pago" class="form-select">
+                <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                <option value="Tarjeta de débito">Tarjeta de débito</option>
+                <option value="12 cuotas">12 cuotas mensuales</option>
+                <option value="18 cuotas">18 cuotas mensuales</option>
+                <option value="tienda">Pago en tienda</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="total_envio" class="form-label">TOTAL + ENVIO</label>
+            <input type="number" readonly class="form-control" id="total_envio" name="total">
+            <button class="btn btn-warning my-3" id="boton" onmousedown="tarjeta()"> Comprar </button>
+        </div>
+        
+    </form>
+    <div class="my-3" id="mensaje" hidden>
+            <textarea class="form-control" id="cod" rows="5">Acerquese a nuestro almacén y presente el código de compra para finalizar la transacción. Código de pago en tienda: SKU-WWK{{pedidos.0._id}}
+                GRACIAS POR SU PREFERENCIA
+            </textarea>
+        </div>
+</section>
+<script>
+function comprar(){
+    const total_etiqueta=document.querySelectorAll('.total');
+    var total=0;
+    for (i of total_etiqueta){
+        total+=parseInt(i.innerHTML)
+    };
+    $('#total_envio').val(total)
+    
+}
+function tarjeta(){
+    var forma=$('#pago').val()
+    if(forma=='tienda'){
+        $('#boton').prop('disabled',true)
+        $('#mensaje').prop('hidden', false)
+    }
+}
+</script>

@@ -1,0 +1,247 @@
+<section class="prod">
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/3-4-500x500.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{tienda.0.name}}</h5>
+            <p class="card-text">Aparador de melamina, con ventanas de vidrio templado.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.0.stock}}</p>
+                <p>Precio: {{tienda.0.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.0.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.0.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.0.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/11-2-500x500.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{tienda.1.name}}</h5>
+            <p class="card-text">Banca de madera cedron, con cuero de cocodrilo.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.1.stock}}</p>
+                <p>Precio: {{tienda.1.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.1.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.1.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.1.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/101-500x500.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{tienda.2.name}}</h5>
+            <p class="card-text">Sofa de cuerina, rellenado de goma espuma con un esqueleto de madera de lino.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.2.stock}}</p>
+                <p>Precio: {{tienda.2.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.2.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.2.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.2.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-5">
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/64-500x500.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{tienda.3.name}}</h5>
+            <p class="card-text">Silla con respaldo ergonomico, relleno con gomaespuma.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.3.stock}}</p>
+                <p>Precio: {{tienda.3.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.3.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.3.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.3.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/45-500x500.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{tienda.4.name}}</h5>
+            <p class="card-text">Silla giratoria, rellenada con gomaespuma, y con esqueleto metalico</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.4.stock}}</p>
+                <p>Precio: {{tienda.4.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.4.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.4.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.4.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/44-500x500.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Silla Kas negro</h5>
+            <p class="card-text">El Sitial Kas es ideal para acompañar tus espacios comunes, ya sea que lo incluyas en el living o en el comedor.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.5.stock}}</p>
+                <p>Precio: {{tienda.5.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.5.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.5.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.5.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row pb-5">
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/06/134-1-500x500.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Juego de Sala Patchwork</h5>
+            <p class="card-text">Con un diseño que lo hace perfecto para el living. Por sus características es ideal para facilitar el protagonismo de otros elementos decorativos.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.6.stock}}</p>
+                <p>Precio: {{tienda.6.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.6.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.6.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.6.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2022/01/26-500x500.jpg" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Poltrona Luis</h5>
+            <p class="card-text">Con su diseño ergonomico es ideal para terraza o exteriores. Su decoracion es minimalista y apto para jovenes o niños.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.7.stock}}</p>
+                <p>Precio: {{tienda.7.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.7.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.7.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.7.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carrito</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-4 d-flex">
+        <div class="card flex-grow-1" style="width: 18rem;">
+          <img src="https://mueblesronny.com/wp-content/uploads/2020/05/121-500x500.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sillon Panchito</h5>
+            <p class="card-text">Ideal para adultos  mayores, por sus características ergonomicas y su comodidad, es ideal para salas o dormitorios.</p>
+          </div>
+          <form action="/pedido/add" method="post">
+            <div class="card-body border">
+                Stock: <p class="stock">{{tienda.8.stock}}</p>
+                <p>Precio: {{tienda.8.price}}.00</p>
+                <input type="text" name="sku" value="{{tienda.8.sku}}" readonly hidden>
+                <input type="number" name="price" value="{{tienda.8.price}}" readonly hidden>
+                <input type="text" name="name" value="{{tienda.8.name}}" readonly hidden>
+                <input type="number" name="total" class="total" value="0" hidden readonly>
+                <label for="unid" class="form-label">Unidades</label>
+                <input type="number" name="unid" min="0" value="0" step="1" class="form-control" onblur="cal_total($(this)), valida($(this))">
+            </div>
+            <div class="card-body text-center">
+                <button class="btn btn-warning">Añadir a carritos</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> 
+  </div>
+</section>
+<script>
+  function cal_total(value){
+    var a=parseInt(value.siblings('input[name="price"]').val());
+    var b=parseInt(value.val());
+    value.siblings('input[name="total"]').val(a*b)
+  }
+  //validacion----------------------------------------------------------------------
+  function valida(elemento){
+    var unidad=parseInt(elemento.val());
+    var stock=parseInt((elemento.siblings('.stock')).html())
+    const boton=((elemento.parent()).siblings('div')).find('button')
+    if (unidad>stock){
+      boton.prop('disabled',true)
+      elemento.siblings('.stock').addClass('text-danger fs-4')
+    }
+    else{
+      boton.prop('disabled',false)
+      elemento.siblings('.stock').removeClass('text-danger fs-4')
+    }
+  }
+</script>

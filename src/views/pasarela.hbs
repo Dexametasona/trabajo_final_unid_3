@@ -1,0 +1,95 @@
+<section class="container bg-danger bg-opacity-50 w-50 mx-auto p-5 my-2 rounded-3">
+    <h2> METODO DE PAGO TARJETA</h2>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>SKU</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each final.[0]}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{sku}}</td>
+                    <td class="prod">{{name}}</td>
+                    <td>{{price}}</td>
+                    <td class="unit">{{unid}}</td>
+                    <td>{{total}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <form action="/borrar_pasarela" method="post">
+        <input type="text" hidden readonly  name="productos" id="productos">
+        <input type="text" hidden readonly name="tipo_pago" id="tipo" value="{{final.1.0.tipo}}">
+        <input type="number" hidden readonly name="importe" value="{{final.1.0.total}}">
+        <div class="my-3 d-flex justify-content-center">
+            <img class="rounded-3" src="https://st2.depositphotos.com/2485091/45350/v/450/depositphotos_453506614-stock-illustration-popular-credit-card-companies-logos.jpg">
+        </div>
+        <div class="mb-3 d-flex align-items-center">
+            <label for="email" class="form-label mx-3 fs-3"><span class="bi bi-envelope-at-fill"></span></label>
+            <input type="email" name="email" class="form-control" placeholder="pepelucho@gmail.com" id="email" onblur="validame()">
+        </div>
+        <div class="mb-3 d-flex align-items-center">
+            <label for="card" class="form-label mx-3 fs-3"><span class="bi bi-credit-card-fill"></span></label>
+            <input type="text" class="form-control" value="0000-0000-0000-0000" name="tarjeta" placeholder="XXXX-YYYY-VVVV-TTTT" id="card" minlength="19" maxlength="19" onblur="validame()">
+        </div>
+        <div class="mb-3 d-flex align-items-center">
+            <label for="date" class="form-label mx-3 fs-3"><span class="bi bi-calendar-date"></span></label>
+            <input type="date" class="form-control" id="date">
+            <label for="lock" class="form-label mx-3 fs-3"><span class="bi bi-lock"></span></label>
+            <input type="password" class="form-control" id="lock" placeholder="582" maxlength="3" onblur="validame()">
+        </div>
+        <div class="mb-3 text-center">
+            <button class="btn btn-danger btn-lg" id="boton" onmouseenter="validame()" onmousedown="product()">PAGAR S/{{final.1.0.total}}.00
+            </button>
+        </div>
+    </form> 
+</section>
+<script>
+    function validame(){
+        let email=$('#email').val()
+        let card=$('#card').val()
+        let lock=$('#lock').val()
+        if (!(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email))){
+            $('#email').addClass('border border-danger border-2')
+            $("#boton").prop('disabled',true)
+        }
+        else if(!(/^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/.test(card))){
+            $('#card').addClass('border border-danger border-2')
+            $("#boton").prop('disabled',true)
+        }
+        else if(!(/^[0-9]{3}$/.test(lock))){
+            $('#lock').addClass('border border-danger border-2')
+            $("#boton").prop('disabled',true)
+        }
+        else{
+            $('#email').removeClass('border border-danger border-2')
+            $('#card').removeClass('border border-danger border-2')
+            $('#lock').removeClass('border border-danger border-2')
+            $("#boton").prop('disabled',false)
+        }
+    }
+
+function product(){
+    
+    const prod=document.querySelectorAll('.prod')
+    const unid=document.querySelectorAll('.unit')
+    var prod_bd='';
+    var c=0;
+    for (i of prod){
+        prod_bd=prod_bd.concat(prod[c].innerHTML)
+        prod_bd=prod_bd.concat(': ')
+        prod_bd=prod_bd.concat(unid[c].innerHTML)
+        prod_bd=prod_bd.concat(', ')
+        c++
+    }
+    $('#productos').val(prod_bd)
+}
+</script>

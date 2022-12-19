@@ -1,0 +1,31 @@
+*,
+::after,
+::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.techo{
+    height:4rem;
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+    font-size: 1.5rem;
+}
+.carrusel{
+    max-height: 100vh;
+    
+}
+.carousel-inner{
+    background: linear-gradient(to right,
+    rgba(0,0,0,0.9), 
+    rgba(0,0,0,0.25)
+    );
+    h5,p{
+        font-size: 2rem;
+    }
+}
+.prod{
+    background-color: rgba(0,0,0,0.5)
+}
+
